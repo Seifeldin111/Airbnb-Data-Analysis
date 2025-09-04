@@ -136,7 +136,7 @@ axes[0 ,0].set_ylabel("Count of Listings")
 axes[0,0].legend(title="Room Type")
 
 # 2. Avg Price by Neighborhood Group & Room Type
-sns.barplot(data=df, x="neighbourhood_group", y="price", hue="room_type", ci=None, ax=axes[0,1])
+sns.barplot(data=df, x="neighbourhood_group", y="price", hue="room_type", ci=None, ax=axes[1,1])
 axes[1,1].set_title("Avg Price by Neighbourhood Group and Room Type")
 plt.setp(axes[1,1].get_xticklabels(), rotation=45, ha='right')
 axes[1,1].set_xlabel("Neighbourhood Group")
@@ -153,7 +153,7 @@ if "approx_profit" in df.columns:
     axes[1,0].legend(title="Room Type")
 
 # 4. Avg Number of Reviews by Neighborhood Group & Room Type
-sns.barplot(data=df, x="neighbourhood_group", y="number_of_reviews", hue="room_type", ci=None, ax=axes[1,1])
+sns.barplot(data=df, x="neighbourhood_group", y="number_of_reviews", hue="room_type", ci=None, ax=axes[0,1])
 axes[0,1].set_title("Avg Number of Reviews by Neighbourhood Group and Room Type")
 plt.setp(axes[0,1].get_xticklabels(), rotation=45, ha='right')
 axes[0, 1].set_xlabel("Neighbourhood Group")
@@ -330,13 +330,13 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10))  # 2 rows, 2 cols
 
 
 # 1. Number of listings
-sns.countplot(x='coastal', data=df, ax=axes[1,1])
+sns.countplot(x='coastal', data=df, ax=axes[0,0])
 axes[0,0].set_title("Number of Listings")
 axes[0,0].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,0].set_ylabel("Count")
 
 # 2. Average price
-sns.barplot(x='coastal', y='price', data=df, ax=axes[0,1], ci=None)
+sns.barplot(x='coastal', y='price', data=df, ax=axes[1,1], ci=None)
 axes[1,1].set_title("Avg Price")
 axes[1,1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[1,1].set_ylabel("Price")
@@ -349,7 +349,7 @@ if "approx_profit" in df.columns:
     axes[1,0].set_ylabel("Profit")
 
 # 4. Average number of reviews
-sns.barplot(x='coastal', y='number_of_reviews', data=df, ax=axes[0,0], ci=None)
+sns.barplot(x='coastal', y='number_of_reviews', data=df, ax=axes[0,1], ci=None)
 axes[0, 1].set_title("Avg Number of Reviews")
 axes[0, 1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,1].set_ylabel("Reviews")
