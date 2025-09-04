@@ -130,7 +130,7 @@ fig, axes = plt.subplots(2, 2, figsize=(14, 10))  # 2 rows, 2 cols
 # 1. Number of Listings by Neighborhood Group & Room Type
 sns.countplot(data=df, x="neighbourhood_group", hue="room_type", ax=axes[0,0])
 axes[0,0].set_title("Number of Listings by Neighbourhood Group and Room Type")
-axes[0, 0].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[0,0].get_xticklabels(), rotation=45, ha='right')
 axes[0,0].set_xlabel("Neighbourhood Group")
 axes[0 ,0].set_ylabel("Count of Listings")
 axes[0,0].legend(title="Room Type")
@@ -138,7 +138,7 @@ axes[0,0].legend(title="Room Type")
 # 2. Avg Price by Neighborhood Group & Room Type
 sns.barplot(data=df, x="neighbourhood_group", y="price", hue="room_type", ci=None, ax=axes[0,1])
 axes[1,1].set_title("Avg Price by Neighbourhood Group and Room Type")
-axes[1,1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[1,1].get_xticklabels(), rotation=45, ha='right')
 axes[1,1].set_xlabel("Neighbourhood Group")
 axes[1,1].set_ylabel("Avg Price")
 axes[1,1].legend(title="Room Type")
@@ -147,7 +147,7 @@ axes[1,1].legend(title="Room Type")
 if "approx_profit" in df.columns:
     sns.barplot(data=df, x="neighbourhood_group", y="approx_profit", hue="room_type", ci=None, ax=axes[1,0])
     axes[1,0].set_title("Avg Approx Profit by Neighbourhood Group and Room Type")
-    axes[1,0].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+    plt.setp(axes[1,0].get_xticklabels(), rotation=45, ha='right')
     axes[1,0].set_xlabel("Neighbourhood Group")
     axes[1,0].set_ylabel("Avg Approx Profit")
     axes[1,0].legend(title="Room Type")
@@ -155,7 +155,7 @@ if "approx_profit" in df.columns:
 # 4. Avg Number of Reviews by Neighborhood Group & Room Type
 sns.barplot(data=df, x="neighbourhood_group", y="number_of_reviews", hue="room_type", ci=None, ax=axes[1,1])
 axes[0,1].set_title("Avg Number of Reviews by Neighbourhood Group and Room Type")
-#axes[0, 1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[0,1].get_xticklabels(), rotation=45, ha='right')
 axes[0, 1].set_xlabel("Neighbourhood Group")
 axes[0,1].set_ylabel("Avg Reviews")
 axes[0, 1].legend(title="Room Type")
@@ -244,6 +244,15 @@ This suggests that **affordable listings tend to attract more bookings and bette
 
 
 
+
+
+
+
+
+
+
+
+
 import matplotlib.pyplot as plt
 
 st.header("4. Host Listings Analysis")
@@ -296,6 +305,9 @@ Hosts with many listings may **struggle to maintain quality**, leading to fewer 
 
 
 
+
+
+
 st.header("5. Coastal vs Non-Coastal")
 
 
@@ -314,24 +326,19 @@ agg['area'] = agg['coastal'].map(label_map)
 
 
 
-
-
-
-
-
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))  # 2 rows, 2 cols
 
 
 # 1. Number of listings
 sns.countplot(x='coastal', data=df, ax=axes[1,1])
 axes[0,0].set_title("Number of Listings")
-axes[0, 0].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[0,0].get_xticklabels(), rotation=45, ha='right')
 axes[0,0].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,0].set_ylabel("Count")
 
 # 2. Average price
 sns.barplot(x='coastal', y='price', data=df, ax=axes[0,1], ci=None)
-axes[1, 1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[1,1].get_xticklabels(), rotation=45, ha='right')
 axes[1,1].set_title("Avg Price")
 axes[1,1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[1,1].set_ylabel("Price")
@@ -339,14 +346,14 @@ axes[1,1].set_ylabel("Price")
 # 3. Average approx_profit (if available)
 if "approx_profit" in df.columns:
     sns.barplot(x='coastal', y='approx_profit', data=df, ax=axes[1,0], ci=None)
-    axes[1, 0].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+    plt.setp(axes[1,0].get_xticklabels(), rotation=45, ha='right')
     axes[1,0].set_title("Avg Approx Profit")
     axes[1,0].set_xlabel("Coastal (1) vs Non-Coastal (0)")
     axes[1,0].set_ylabel("Profit")
 
 # 4. Average number of reviews
 sns.barplot(x='coastal', y='number_of_reviews', data=df, ax=axes[0,0], ci=None)
-axes[0,1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+plt.setp(axes[0,1].get_xticklabels(), rotation=45, ha='right')
 axes[0, 1].set_title("Avg Number of Reviews")
 axes[0, 1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,1].set_ylabel("Reviews")
