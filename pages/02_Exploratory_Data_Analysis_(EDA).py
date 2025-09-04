@@ -332,13 +332,11 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10))  # 2 rows, 2 cols
 # 1. Number of listings
 sns.countplot(x='coastal', data=df, ax=axes[1,1])
 axes[0,0].set_title("Number of Listings")
-plt.setp(axes[0,0].get_xticklabels(), rotation=45, ha='right')
 axes[0,0].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,0].set_ylabel("Count")
 
 # 2. Average price
 sns.barplot(x='coastal', y='price', data=df, ax=axes[0,1], ci=None)
-plt.setp(axes[1,1].get_xticklabels(), rotation=45, ha='right')
 axes[1,1].set_title("Avg Price")
 axes[1,1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[1,1].set_ylabel("Price")
@@ -346,14 +344,12 @@ axes[1,1].set_ylabel("Price")
 # 3. Average approx_profit (if available)
 if "approx_profit" in df.columns:
     sns.barplot(x='coastal', y='approx_profit', data=df, ax=axes[1,0], ci=None)
-    plt.setp(axes[1,0].get_xticklabels(), rotation=45, ha='right')
     axes[1,0].set_title("Avg Approx Profit")
     axes[1,0].set_xlabel("Coastal (1) vs Non-Coastal (0)")
     axes[1,0].set_ylabel("Profit")
 
 # 4. Average number of reviews
 sns.barplot(x='coastal', y='number_of_reviews', data=df, ax=axes[0,0], ci=None)
-plt.setp(axes[0,1].get_xticklabels(), rotation=45, ha='right')
 axes[0, 1].set_title("Avg Number of Reviews")
 axes[0, 1].set_xlabel("Coastal (1) vs Non-Coastal (0)")
 axes[0,1].set_ylabel("Reviews")
