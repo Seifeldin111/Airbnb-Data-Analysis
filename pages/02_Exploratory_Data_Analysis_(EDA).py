@@ -48,6 +48,7 @@ col3, col4 = st.columns(2)
 with col1:
     fig, ax = plt.subplots(figsize=(6,4))
     df['neighbourhood_group'].value_counts().plot(kind='bar')
+    plt.xticks(rotation=45)
     ax.set_xlabel("Neighbourhood Group")
     ax.set_ylabel("Count")
     ax.set_title("Listings by Neighbourhood Group")
@@ -58,6 +59,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots(figsize=(6,4))
     df.groupby('neighbourhood_group')['number_of_reviews'].mean().plot(kind='bar')
+    plt.xticks(rotation=45)
     ax.set_title("Mean No. of Reviews by Neighbourhood Group")
     ax.set_ylabel("No. of Reviews")
     ax.set_xlabel("Neighbourhood Group")
@@ -69,6 +71,7 @@ with col2:
 with col3:
     fig, ax = plt.subplots(figsize=(6,4))
     df.groupby('neighbourhood_group')['approx_profit'].mean().plot(kind='bar')
+    plt.xticks(rotation=45)
     ax.set_title("Mean Approx. Profit by Neighbourhood Group")
     ax.set_ylabel("Approx. Profit")
     ax.set_xlabel("Neighbourhood Group")
@@ -80,6 +83,7 @@ with col3:
 with col4:
     fig, ax = plt.subplots(figsize=(6, 4))
     df.groupby('neighbourhood_group')['price'].mean().plot(kind='bar')
+    plt.xticks(rotation=45)
     ax.set_title("Mean Price by Neighbourhood Group")
     ax.set_ylabel("Price")
     ax.set_xlabel("Neighbourhood Group")
