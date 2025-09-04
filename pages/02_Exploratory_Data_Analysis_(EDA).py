@@ -130,6 +130,7 @@ fig, axes = plt.subplots(2, 2, figsize=(14, 10))  # 2 rows, 2 cols
 # 1. Number of Listings by Neighborhood Group & Room Type
 sns.countplot(data=df, x="neighbourhood_group", hue="room_type", ax=axes[0,0])
 axes[0,0].set_title("Number of Listings by Neighbourhood Group and Room Type")
+ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
 axes[0,0].set_xlabel("Neighbourhood Group")
 axes[0,0].set_ylabel("Count of Listings")
 axes[0,0].legend(title="Room Type")
