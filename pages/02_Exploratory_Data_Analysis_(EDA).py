@@ -155,7 +155,7 @@ if "approx_profit" in df.columns:
 # 4. Avg Number of Reviews by Neighborhood Group & Room Type
 sns.barplot(data=df, x="neighbourhood_group", y="number_of_reviews", hue="room_type", ci=None, ax=axes[1,1])
 axes[0,1].set_title("Avg Number of Reviews by Neighbourhood Group and Room Type")
-axes[0, 1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+#axes[0, 1].set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
 axes[0, 1].set_xlabel("Neighbourhood Group")
 axes[0,1].set_ylabel("Avg Reviews")
 axes[0, 1].legend(title="Room Type")
