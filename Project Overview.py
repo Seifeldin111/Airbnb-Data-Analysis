@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(layout="wide", page_icon="🏙️")
+st.set_page_config(layout="auto", page_icon="🏙️")
 
 # Project Overview Title
 st.markdown(
